@@ -74,7 +74,7 @@
         outline: 0px !important;
       }
       #id_password1,
-      #id_password2 {
+      #id_password2,#id_phone_number {
         border: transparent;
       }
     </style>
@@ -105,8 +105,8 @@
                 <div class="input-group-append">
                   <span class="input-group-text"><i class="fas fa-phone"></i></span>
                 </div>
-                <div class="input-group-prepend">
-                  <span class="input-group-text">+91</span>
+                <div class="input-group-prepend" style="background:white;">
+                  <span class="input-group-text"style="background:transparent !important; color:black !important">+91</span>
                 </div>
                 {{ form.phone_number }}
               </div>
@@ -158,7 +158,7 @@
       var form_fields = document.getElementsByTagName("input");
       form_fields[1].placeholder = "Username..";
       form_fields[2].placeholder = "Email..";
-      form_fields[3].placeholder = "Enter phonenumber.";
+      form_fields[3].placeholder = "Enter phone No.";
       form_fields[4].placeholder = "Enter Password...";
       form_fields[5].placeholder = "Re-enter Password...";
 
