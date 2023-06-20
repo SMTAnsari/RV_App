@@ -41,10 +41,10 @@ def logout_user(request):
 
 @unauthenticated_user
 def register_page(request):
-    form = CreateUserForm()
+    form = CreateUserForm(request.POST)
     context = {'form': form}
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
+        form = CreateUserForm()
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
