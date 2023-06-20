@@ -73,11 +73,10 @@
         box-shadow: none !important;
         outline: 0px !important;
       }
-#id_password1,#id_password2{
-  border: transparent;
-}
-
-
+      #id_password1,
+      #id_password2 {
+        border: transparent;
+      }
     </style>
   </head>
   <body>
@@ -92,17 +91,13 @@
               {%csrf_token%}
               <div class="input-group mb-3">
                 <div class="input-group-append">
-                  <span class="input-group-text"
-                    ><i class="fas fa-user"></i
-                  ></span>
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
                 {{form.username}}
               </div>
               <div class="input-group mb-2">
                 <div class="input-group-append">
-                  <span class="input-group-text"
-                    ><i class="fas fa-envelope-square"></i
-                  ></span>
+                  <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
                 </div>
                 {{form.email}}
               </div>
@@ -110,14 +105,15 @@
                 <div class="input-group-append">
                   <span class="input-group-text"><i class="fas fa-phone"></i></span>
                 </div>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">+91</span>
+                </div>
                 {{ form.phone_number }}
               </div>
               <div id="phone_number_error" style="display: none; color: red;">Invalid phone number</div>
               <div class="input-group mb-2">
                 <div class="input-group-append">
-                  <span class="input-group-text"
-                    ><i class="fas fa-key"></i
-                  ></span>
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
                 {{form.password1}}
                 <div class="input-group-append" style="background: white !important; ">
@@ -128,9 +124,7 @@
               </div>
               <div class="input-group mb-2">
                 <div class="input-group-append">
-                  <span class="input-group-text"
-                    ><i class="fas fa-key"></i
-                  ></span>
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
                 {{form.password2}}
                 <div class="input-group-append" style="background: white !important; ">
@@ -139,17 +133,13 @@
                   </span>
                 </div>
               </div>
-              
+
               <div class="d-flex justify-content-center mt-3 login_container">
-                <input
-                  class="btn login_btn"
-                  type="submit"
-                  value="create user"
-                />
+                <input class="btn login_btn" type="submit" value="create user" />
               </div>
             </form>
           </div>
-          
+
           <div class="mt-4">
             <div class="d-flex justify-content-center links">
               Already have an account?
@@ -174,39 +164,37 @@
 
       for (var field in form_fields) {
         form_fields[field].className += " form-control";
+        form_fields[field].required = true;
       }
-    </script>
-        <script>
-      
-          function togglePasswordVisibility() {
-            const passwordInput = document.getElementById('id_password1');
-            const togglePasswordIcon = document.querySelector('.toggle-password');
-        
-            if (passwordInput.type === 'password') {
-              passwordInput.type = 'text';
-              togglePasswordIcon.classList.add('fa-eye');
-              togglePasswordIcon.classList.remove('fa-eye-slash');
-            } else {
-              passwordInput.type = 'password';
-              togglePasswordIcon.classList.add('fa-eye-slash');
-              togglePasswordIcon.classList.remove('fa-eye');
-            }
-          };
-          function togglePassword() {
-            const passwordInput = document.getElementById('id_password2');
-            const togglePasswordIcon = document.querySelector('.toggle-password1');
-        
-            if (passwordInput.type === 'password') {
-              passwordInput.type = 'text';
-              togglePasswordIcon.classList.add('fa-eye');
-              togglePasswordIcon.classList.remove('fa-eye-slash');
-            } else {
-              passwordInput.type = 'password';
-              togglePasswordIcon.classList.add('fa-eye-slash');
-              togglePasswordIcon.classList.remove('fa-eye');
-            }
-          };
-          document.addEventListener('DOMContentLoaded', function() {
+
+      function togglePasswordVisibility() {
+        var passwordField = document.getElementById("id_password1");
+        var toggleIcon = document.getElementsByClassName("toggle-password")[0];
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          toggleIcon.classList.remove("fa-eye-slash");
+          toggleIcon.classList.add("fa-eye");
+        } else {
+          passwordField.type = "password";
+          toggleIcon.classList.remove("fa-eye");
+          toggleIcon.classList.add("fa-eye-slash");
+        }
+      };
+
+      function togglePassword() {
+        var passwordField = document.getElementById("id_password2");
+        var toggleIcon = document.getElementsByClassName("toggle-password1")[0];
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          toggleIcon.classList.remove("fa-eye-slash");
+          toggleIcon.classList.add("fa-eye");
+        } else {
+          passwordField.type = "password";
+          toggleIcon.classList.remove("fa-eye");
+          toggleIcon.classList.add("fa-eye-slash");
+        }
+      };
+      document.addEventListener('DOMContentLoaded', function() {
     const phoneNumberField = document.querySelector('#id_phone_number');
     const phoneNumberError = document.querySelector('#phone_number_error');
 
@@ -222,8 +210,6 @@
       }
     });
   });
-
-          </script>
-          
+    </script>
   </body>
 </html>
